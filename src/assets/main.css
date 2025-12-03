@@ -1,0 +1,380 @@
+*{
+  font-family: "Marmelad", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #ffff;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: radial-gradient(circle, #305853, #284c4c, #234044, #1f353b, #1b2a30);
+  overflow-x: hidden;
+}
+
+/* Лоадер для card.html */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #305853, #284c4c, #234044, #1f353b, #1b2a30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: hideLoader 0.5s ease-out 1s forwards;
+}
+
+.page-content {
+  opacity: 0;
+  animation: showContent 0.5s ease-out 2s forwards;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 43px;
+  margin-bottom: 122px;
+}
+
+.header_title{
+  align-self: center;
+  font-size: 50px;
+}
+
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.main_description{
+  align-self: center;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.main_description_text{
+  font-size: 23px;
+}
+
+.main_cards{
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.main_card-item{
+  max-width: 300px;
+  border-radius: 30px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.main_card-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.main_card-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.main_card-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.main_card-item:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.main_card-item img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 30px;
+}
+
+.main_card-item:hover{
+  box-shadow: 3px 5px 11px 2px #1b2a30;
+}
+
+.card_main{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1300px;
+}
+
+.card{
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.card_main__description{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  gap: 62px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.card_main_description-text_title{
+  color: #E7984A;
+  text-shadow: 3px 0px 13px #B33C31;
+  margin-bottom: 31px;
+  font-size: 36px;
+
+}
+
+.card_main_description-text_descr{
+  line-height: 1.5;
+}
+
+.card_main__congrats{
+  align-items: center;
+  display: contents;
+}
+
+.card_main__newyear p{
+  color: #9E2C21;
+  font-size: 38px;
+  text-shadow: 0 0 38.7px #B33C31;
+}
+
+.card_main__words img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  display: block;
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #25b09b;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 2s infinite linear;
+}
+
+@keyframes l3 {
+  to {
+      transform: rotate(1turn);
+  }
+}
+
+@keyframes hideLoader {
+  to {
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+
+@keyframes showContent {
+  to {
+      opacity: 1;
+  }
+}
+
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  margin-top: 130px;
+}
+
+/* Планшетная адаптация (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .header_title{
+      font-size: 42px;
+  }
+  
+  .header{
+      margin-top: 30px;
+      margin-bottom: 80px;
+  }
+  
+  .main_description{
+      max-width: 500px;
+      margin-bottom: 60px;
+      padding: 0 20px;
+  }
+  
+  .main_description_text{
+      font-size: 20px;
+  }
+  
+  .main_cards{
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  
+  .main_card-item{
+      max-width: 250px;
+  }
+  
+  .main_card-item img{
+      width: 100%;
+      height: auto;
+  }
+  
+  .footer{
+      margin-top: 80px;
+  }
+}
+
+/* Мобильная адаптация (до 767px) */
+@media screen and (max-width: 767px) {
+  .page-content{
+      padding: 0 16px;
+  }
+
+  .header_title{
+      font-size: 32px;
+  }
+  
+  .header{
+      margin-top: 20px;
+      margin-bottom: 40px;
+  }
+  
+  /* CARD PAGE */
+  .card_main{
+      max-width: 100%;
+  }
+
+  .card{
+      margin-bottom: 40px;
+  }
+
+  .card_main__description{
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-left: 0;
+      margin-right: 0;
+      text-align: center;
+  }
+
+  .card_main_description-text_title{
+      font-size: 24px;
+      margin-bottom: 16px;
+  }
+
+  .card_main_description-text_descr{
+      font-size: 16px;
+      line-height: 1.6;
+  }
+
+  .card_main__congrats{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+  }
+
+  .card_main__newyear p{
+      font-size: 28px;
+      text-align: center;
+  }
+
+  .main_description{
+      max-width: 90%;
+      margin-bottom: 40px;
+      padding: 0 15px;
+  }
+  
+  .main_description_text{
+      font-size: 18px;
+      line-height: 1.5;
+  }
+  
+  .main_cards{
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      width: 100%;
+      padding: 0 15px;
+  }
+  
+  .main_card-item{
+      max-width: 280px;
+      width: 100%;
+  }
+  
+  .main_card-item img{
+      width: 100%;
+      height: auto;
+  }
+  
+  .footer{
+      margin-top: 50px;
+      margin-bottom: 30px;
+  }
+  
+  .footer_icon{
+      width: 32px;
+      height: 32px;
+  }
+}
+
+/* Малые мобильные устройства (до 480px) */
+@media screen and (max-width: 480px) {
+  .header_title{
+      font-size: 26px;
+  }
+  
+  .header{
+      margin-top: 15px;
+      margin-bottom: 30px;
+  }
+  
+  /* CARD PAGE (small phones) */
+  .card_main_description-text_title{
+      font-size: 22px;
+  }
+
+  .card_main_description-text_descr{
+      font-size: 15px;
+  }
+
+  .card_main__newyear p{
+      font-size: 24px;
+  }
+
+  .main_description_text{
+      font-size: 16px;
+  }
+  
+  .main_card-item{
+      max-width: 240px;
+  }
+}
